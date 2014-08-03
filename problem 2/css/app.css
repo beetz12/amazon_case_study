@@ -1,0 +1,7 @@
+.row {
+	margin: 0;
+}
+
+.control-group.error .control-label, .control-group.error .help-block, .control-group.error .help-inline {
+    color: #b94a48;
+}

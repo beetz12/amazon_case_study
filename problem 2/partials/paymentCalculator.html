@@ -1,0 +1,61 @@
+<div class="container">
+	<div class ="row">
+		<div class="span8">
+		<h1 class="jumbotron">Amazon Payment Calculator</h1>
+		
+		<h5>Please enter the transaction amount in the box below to see the total processing fee.</h5>
+		
+		<br>		
+		
+		 <form id="myForm" name="myForm">
+			<fieldset>
+				<div class="row control-group" ng-class="{error: myForm.transAmount.$invalid}">
+					<div class="col-lg-3 col-sm-12 label label-default">
+						<label for="transAmount">Transaction Amount:</label>
+					</div>
+					<div class="col-lg-3 col-sm-12">
+						<input id="transAmount" name="transAmount" required placeholder="Transaction Amount" type="number" ng-model="calc.amount" />
+					</div>
+					<div class="col-lg-3 col-sm-12 help-inline" ng-show="myForm.transAmount.$error.number">
+                            Please enter a valid decimal.
+                    </div>
+					<div class="col-lg-3 col-sm-12 help-inline" ng-show="myForm.transAmount.$error.required && !myForm.transAmount.$error.number">
+                            Required
+                    </div>
+					
+					
+				</div>
+				
+				<div class="row" ng-show="!myForm.$invalid">
+					<div class="col-lg-3 col-sm-12 label label-primary">
+						<label>{{(TransPercent * 100) | number: 1}} % of Transaction: </label>
+					</div>
+					<div class="col-lg-9 col-sm-12">
+						<label>{{(calc.amount * TransPercent) | number: 2}}</label>
+					</div>					
+				</div>
+				
+				<div class="row" ng-show="!myForm.$invalid">
+					<div class="col-md-3 col-sm-12 label label-info">
+						<label>Per-Transaction Fee:</label>
+					</div>
+						<div class="col-md-9 col-sm-12">
+						<label>{{PerTransactionFee | number: 2}}</label>
+					</div>
+				</div>
+				
+				<div class="row" ng-show="!myForm.$invalid">
+					<div class="col-md-3 col-sm-12 label label-success">
+						<label>Total Processing Fee: </label>
+					</div>														
+					<div class="col-md-9 col-sm-12">
+						<label>{{((calc.amount * TransPercent) + PerTransactionFee) | number: 2}}</label>
+					</div>
+				</div>
+			</fieldset>				
+			
+		</form>
+	
+		</div>
+	</div>
+</div>

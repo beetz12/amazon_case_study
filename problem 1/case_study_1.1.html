@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script type="text/javascript">        
+		
+		var myVar=setInterval(function(){myTimer()},1000);
+
+function myTimer() {
+    var d = new Date();
+    document.getElementById("timeval").innerHTML = d.toLocaleTimeString();
+}
+    </script>
+</head>
+<body>
+    <table><tr><td><img width="250" height="100" src="logo.png" /></td></tr></table>
+    <table>
+          <tr><td><p id="titlediv"></p></td></tr>
+		  <tr><td>Product name</td><td>Price: $x.xx</td></tr>
+          <tr><td>Time remaining in sale: <p id="timeval"></p></td></tr>
+    </table>
+
+    <script type="text/javascript">
+        alert('here');
+    </script>
+
+	<button onclick="myFunction()">Wisdom</button>
+
+<p id="message"></p>
+
+<script>
+document.getElementById("titlediv").innerHTML = "Simple flash sale detail page";
+function myFunction() {
+    var slogan = "The early shoper gets the bargain!";
+    document.getElementById("message").innerHTML = slogan;
+}
+</script>
+</body>
+</html>
